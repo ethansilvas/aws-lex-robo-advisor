@@ -173,25 +173,21 @@ def get_recommendation(risk_level):
         return '40% bonds (AGG), 60% equities (SPY)'
     elif risk_level == 'High':
         return '20% bonds (AGG), 80% equities (SPY)'
+    else: 
+        return '100% bonds (AGG), 0% equities (SPY) - (Invalid risk-level, default portfolio recommended) '
     
 def validate(age, investment_amount):
     """Validates required slots to fulfill portfolio recommendation"""
 
-    # check if 65 > age > 0
     if age is not None:
         age = float(age)
         
+        # check if 65 > age > 0
         if age <= 0 or age >= 65:
             return build_validation_result(
                 False,
                 'age',
                 'Invalid age, please enter an age above 0 and below 65.'
-            )
-    else:
-        return build_validation_result(
-                False,
-                'age',
-                'An age above 0 and below 65 must be provided.'
             )
         
     if investment_amount is not None:
@@ -204,12 +200,6 @@ def validate(age, investment_amount):
                 'investmentAmount',
                 'Invalid investment amount, please enter an amount greater than or equal to 5000.'
             )
-    else: 
-        return build_validation_result(
-            False,
-            'investmentAmount',
-            'An invesment amount greater than or equal to 5000 must be provided.'
-        )
         
     # required slots validated, return valid result
     return build_validation_result(True, None, None)
