@@ -123,8 +123,96 @@ def recommend_portfolio(intent_request):
     investment_amount = get_slots(intent_request)["investmentAmount"]
     risk_level = get_slots(intent_request)["riskLevel"]
     source = intent_request["invocationSource"]
+    
+    # on DialogCodeHook event, validate slots and return next course of action
+    if source == 'DialogCodeHook':
+        all_slots = get_slots(intent_request)
+        
+        # validate age and investment amount 
+        validation_result = validate(age, investment_amount)
+        
+        if not validation_result['isValid']:
+            all_slots[validation_result["violatedSlot"]] = None
 
-    # YOUR CODE GOES HERE!
+            # Returns an elicitSlot dialog to request new data for the invalid slot
+            return elicit_slot(
+                intent_request["sessionAttributes"],
+                intent_request["currentIntent"]["name"],
+                all_slots,
+                validation_result["violatedSlot"],
+                validation_result["message"]
+            )
+        
+        # Fetch current session attributes
+        output_session_attributes = intent_request["sessionAttributes"]
+
+        # Once all slots are valid, a delegate dialog is returned to Lex to choose the next course of action.
+        return delegate(output_session_attributes, all_slots)
+        
+    # required slots are validated and ready to provide portfolio recommendation
+    portfolio_recommendation = get_recommendation(risk_level)
+    
+    # final return message with recommended portfolio percentages
+    return close(
+        intent_request["sessionAttributes"],
+        "Fulfilled",
+        {
+            "contentType": "PlainText",
+            "content": f'Thank you. The recommended portfolio diversification for your risk-level is: {portfolio_recommendation}'
+        },
+    )
+    
+def get_recommendation(risk_level):
+    """Return string for recommended portfolio percentages based on risk_level string"""
+    
+    if risk_level == 'None':
+        return '100% bonds (AGG), 0% equities (SPY)'
+    elif risk_level == 'Low':
+        return '60% bonds (AGG), 40% equities (SPY)'
+    elif risk_level == 'Medium':
+        return '40% bonds (AGG), 60% equities (SPY)'
+    elif risk_level == 'High':
+        return '20% bonds (AGG), 80% equities (SPY)'
+    
+def validate(age, investment_amount):
+    """Validates required slots to fulfill portfolio recommendation"""
+
+    # check if 65 > age > 0
+    if age is not None:
+        age = float(age)
+        
+        if age <= 0 or age >= 65:
+            return build_validation_result(
+                False,
+                'age',
+                'Invalid age, please enter an age above 0 and below 65.'
+            )
+    else:
+        return build_validation_result(
+                False,
+                'age',
+                'An age above 0 and below 65 must be provided.'
+            )
+        
+    if investment_amount is not None:
+        investment_amount = float(investment_amount)
+        
+        # check if investment_amount >= 5000
+        if investment_amount < 5000:
+            return build_validation_result(
+                False,
+                'investmentAmount',
+                'Invalid investment amount, please enter an amount greater than or equal to 5000.'
+            )
+    else: 
+        return build_validation_result(
+            False,
+            'investmentAmount',
+            'An invesment amount greater than or equal to 5000 must be provided.'
+        )
+        
+    # required slots validated, return valid result
+    return build_validation_result(True, None, None)
 
 
 ### Intents Dispatcher ###
