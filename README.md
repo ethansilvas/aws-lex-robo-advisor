@@ -12,9 +12,13 @@ In the [Videos](./Videos/) folder I have provided examples of running each [test
 
 **Test Events**
 * [ageError](./Videos/age_error_test.mov)
-* []()
+* [correctDialog](./Videos/correct_dialog_test.mov)
+* [incorrectAmountError](./Videos/incorrect_amount_error_test.mov)
+* [negativeAgeError](./Videos/negative_age_error_test.mov)
 
 **General Usage**
+* [Valid input](./Videos/valid_input_test.mov)
+* [Invalid input](./Videos/invalid_input_test.mov)
 
 ---
 
