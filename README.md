@@ -19,8 +19,8 @@ In the [Videos](./Videos/) folder I have provided examples of running each [test
 * [negativeAgeError](./Videos/negative_age_error_test.mov)
 
 **General Usage**
-* [Valid input](./Videos/valid_input_test.mov)
-* [Invalid input](./Videos/invalid_input_test.mov)
+* [Valid input](./Videos/valid_input_test.mov) - Shows all valid input scenarios
+* [Invalid input](./Videos/invalid_input_test.mov) - Shows all invalid input scenarios
 
 **Initial Test (Before Lambda Logic)**
 * [Initial Test](./Videos/initial_roboadvisor_test.mov)
