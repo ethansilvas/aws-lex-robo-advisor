@@ -20,6 +20,9 @@ In the [Videos](./Videos/) folder I have provided examples of running each [test
 * [Valid input](./Videos/valid_input_test.mov)
 * [Invalid input](./Videos/invalid_input_test.mov)
 
+**Initial Test (Before Lambda Logic)**
+* [Initial Test](./Videos/initial_roboadvisor_test.mov)
+
 ---
 
 ## Bot Configurations
