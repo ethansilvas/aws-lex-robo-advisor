@@ -6,7 +6,9 @@ This is my AWS Lex bot that uses an AWS Lambda to give investment portfolio reco
 
 Assuming that valid input has been provided to the bot, you will be able to receive recommended portfolio diversification percentages based on your personal details. 
 
-![Gif showing general usage of inputing your age, risk-level, and investment amount and the bot responding with outputs such as “60% bonds (AGG), 40% equities (SPY)” or “20% bonds (AGG), 80% equities (SPY)”](./Videos/general_usage.gif)
+<p align="center">
+  <img src="./Videos/general_usage.gif" alt="Gif showing general usage of inputing your age, risk-level, and investment amount and the bot responding with outputs such as “60% bonds (AGG), 40% equities (SPY)” or “20% bonds (AGG), 80% equities (SPY)" />
+</p>
 
 In the [Videos](./Videos/) folder I have provided examples of running each [test event](./Test_Events/) in the chatbot dialog box, and have also included videos showing general valid/invalid usage of the bot.
 
