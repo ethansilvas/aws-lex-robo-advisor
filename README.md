@@ -23,7 +23,7 @@ In the [Videos](./Videos/) folder I have provided examples of running each [test
 * [Invalid input](./Videos/invalid_input_test.mov) - Shows all invalid input scenarios
 
 **Initial Test (Before Lambda Logic)**
-* [Initial Test](./Videos/initial_roboadvisor_test.mov)
+* [Initial Test](./Videos/init_test.mov)
 
 ---
 
