@@ -71,7 +71,7 @@ The following dependencies are used:
 
 ## Usage
 
-The Jupyter notebook [machine_learning_trading_bot.ipynb](./machine_learning_trading_bot.ipynb) will provide all steps of the data collection, preparation, and analysis. Data visualizations are shown inline and accompanying analysis responses are provided.
+The lambda function [lambda_function.py](./lambda_function.py) will provide the logic for a bot with similar configurations to how I have mine set up. 
 
 ---
 
