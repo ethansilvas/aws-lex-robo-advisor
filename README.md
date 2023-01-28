@@ -2,17 +2,19 @@
 
 This is my AWS Lex bot that uses an AWS Lambda to give investment portfolio recommendations based on user input details such as age, risk-level, and investment amount. 
 
-### 
+## Using the Bot
 
----
+Assuming that valid input has been provided to the bot, you will be able to receive recommended portfolio diversification percentages based on your personal details. 
 
-## Technologies
+![Gif showing general usage of inputing your age, risk-level, and investment amount and the bot responding with outputs such as “60% bonds (AGG), 40% equities (SPY)” or “20% bonds (AGG), 80% equities (SPY)”](./Videos/valid_input_test_AdobeExpress.gif)
 
-This is an Amazon Lex chatbot that uses a Python 3.7 lambda function. 
+In the [Videos](./Videos/) folder I have provided examples of running each [test event](./Test_Events/) in the chatbot dialog box, and have also included videos showing general valid/invalid usage of the bot.
 
-The following dependencies are used: 
-1. [AWS Lex](https://aws.amazon.com/lex/) (V1) - NLP chatbot 
-2. [AWS Lambda](https://aws.amazon.com/lambda/) - Business logic extension to Lex bot
+**Test Events**
+* [ageError](./Videos/age_error_test.mov)
+* []()
+
+**General Usage**
 
 ---
 
@@ -45,6 +47,16 @@ The Lex bot has the following configurations:
         * age - AMAZON.NUMBER - "How old are you?"
         * investmentAmount - AMAZON.NUMBER - "How much do you want to invest?"
         * riskLevel - AMAZON.AlphaNumeric - "What level of investment risk would you like to take? (None, Low, Medium, High)"
+
+---
+
+## Technologies
+
+This is an Amazon Lex chatbot that uses a Python 3.7 lambda function. 
+
+The following dependencies are used: 
+1. [AWS Lex](https://aws.amazon.com/lex/) (V1) - NLP chatbot 
+2. [AWS Lambda](https://aws.amazon.com/lambda/) - Business logic extension to Lex bot
 
 ---
 
